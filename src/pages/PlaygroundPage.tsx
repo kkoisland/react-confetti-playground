@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Confetti from "react-confetti";
 import { NAV_HOVER_STYLES } from "../Layout";
-import { themes } from "./SeasonalPage";
+import { themes } from "../data/themes";
 
 const DEFAULT_VALUES = {
 	numberOfPieces: 200,
@@ -76,7 +76,6 @@ const ParameterSlider = ({
 };
 
 const PlaygroundPage = () => {
-	console.log(themes);
 	const [numberOfPieces, setNumberOfPieces] = useState(200);
 	const [gravity, setGravity] = useState(0.1);
 	const [wind, setWind] = useState(0);
