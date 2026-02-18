@@ -3,6 +3,28 @@ import { type ReactNode, useEffect, useState } from "react";
 export const NAV_HOVER_STYLES =
 	"hover:text-indigo-600 dark:hover:text-indigo-300";
 
+const LOCALES = [
+	{ code: "en", label: "English" },
+	{ code: "ja", label: "日本語" },
+	{ code: "zh", label: "中文" },
+	{ code: "ko", label: "한국어" },
+	{ code: "es", label: "Español" },
+	{ code: "fr", label: "Français" },
+	{ code: "de", label: "Deutsch" },
+	{ code: "pt", label: "Português" },
+	{ code: "it", label: "Italiano" },
+	{ code: "ru", label: "Русский" },
+] as const;
+
+export type Locale = (typeof LOCALES)[number]["code"];
+
+const getInitialLocale = (): Locale => {
+	const saved = localStorage.getItem("react-confetti-playground:language");
+	if (saved && LOCALES.some((l) => l.code === saved)) return saved as Locale;
+	const browser = navigator.language.split("-")[0];
+	return (LOCALES.find((l) => l.code === browser)?.code ?? "en") as Locale;
+};
+
 type LayoutProps = {
 	children: ReactNode;
 };
@@ -13,7 +35,15 @@ const Layout = ({ children }: LayoutProps) => {
 		if (saved !== null) return JSON.parse(saved);
 		return window.matchMedia("(prefers-color-scheme: dark)").matches;
 	});
+
+	const [locale, setLocale] = useState<Locale>(getInitialLocale);
+
 	const toggleTheme = () => setIsDarkMode(!isDarkMode);
+
+	const handleLocaleChange = (newLocale: Locale) => {
+		setLocale(newLocale);
+		localStorage.setItem("react-confetti-playground:language", newLocale);
+	};
 
 	useEffect(() => {
 		localStorage.setItem(
@@ -35,6 +65,18 @@ const Layout = ({ children }: LayoutProps) => {
 						</div>
 
 						<div className="flex items-center gap-4">
+							<select
+								value={locale}
+								onChange={(e) => handleLocaleChange(e.target.value as Locale)}
+								className="text-sm px-2 py-1 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 cursor-pointer"
+							>
+								{LOCALES.map((l) => (
+									<option key={l.code} value={l.code}>
+										{l.label}
+									</option>
+								))}
+							</select>
+
 							<button type="button" onClick={toggleTheme}>
 								{isDarkMode ? "☀️" : "🌙"}
 							</button>
