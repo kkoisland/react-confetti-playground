@@ -3,8 +3,7 @@ export const themes = [
 		id: "sakura",
 		name: "Sakura",
 		emoji: "🌸",
-		description:
-			"Cherry blossom petals gently swirl and flutter in the breeze",
+		description: "Cherry blossom petals gently swirl and flutter in the breeze",
 		colors: ["#FFB7C5", "#FFC0CB"],
 		numberOfPieces: 100,
 		gravity: 0.02,

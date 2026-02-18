@@ -9,9 +9,7 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
 	const [isDarkMode, setIsDarkMode] = useState(() => {
-		const saved = localStorage.getItem(
-			"react-confetti-playground:darkMode",
-		);
+		const saved = localStorage.getItem("react-confetti-playground:darkMode");
 		if (saved !== null) return JSON.parse(saved);
 		return window.matchMedia("(prefers-color-scheme: dark)").matches;
 	});
@@ -50,8 +48,7 @@ const Layout = ({ children }: LayoutProps) => {
 			<footer className="py-4 px-4 text-center text-sm text-gray-600 dark:text-gray-400">
 				<div className="flex flex-col gap-2">
 					<div>
-						React Confetti Playground by kkoisland (Keiko) | Built
-						with{" "}
+						React Confetti Playground by kkoisland (Keiko) | Built with{" "}
 						<a
 							href="https://github.com/alampros/react-confetti"
 							target="_blank"
