@@ -79,7 +79,7 @@ const Layout = ({ children }: LayoutProps) => {
 				<div className="flex flex-col gap-2">
 					<div>
 						React Confetti Playground by kkoisland (Keiko) |{" "}
-					<FormattedMessage id="layout.builtWith" />{" "}
+						<FormattedMessage id="layout.builtWith" />{" "}
 						<a
 							href="https://github.com/alampros/react-confetti"
 							target="_blank"
