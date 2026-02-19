@@ -1,5 +1,5 @@
 {
-	"layout.footerCredits": "React Confetti Playground — kkoisland (Keiko) 制作 | 使用ライブラリ:",
+	"layout.builtWith": "使用ライブラリ:",
 	"layout.footerViewSource": "GitHubでソースを見る",
 	"common.copiedButtonShort": "コピー済み！",
 	"common.copyCodeButtonShort": "コピー",
