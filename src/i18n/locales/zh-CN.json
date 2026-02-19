@@ -1,5 +1,5 @@
 {
-	"layout.footerCredits": "React Confetti Playground — kkoisland (Keiko) 制作 | 使用库:",
+	"layout.builtWith": "使用库:",
 	"layout.footerViewSource": "在 GitHub 上查看源码",
 	"common.copiedButtonShort": "已复制！",
 	"common.copyCodeButtonShort": "复制",

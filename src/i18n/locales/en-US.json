@@ -1,5 +1,5 @@
 {
-	"layout.footerCredits": "React Confetti Playground by kkoisland (Keiko) | Built with",
+	"layout.builtWith": "Built with",
 	"layout.footerViewSource": "View Source on GitHub",
 	"common.copiedButtonShort": "Copied!",
 	"common.copyCodeButtonShort": "Copy Code",

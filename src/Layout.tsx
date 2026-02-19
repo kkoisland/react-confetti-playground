@@ -78,7 +78,8 @@ const Layout = ({ children }: LayoutProps) => {
 			<footer className="py-4 px-4 text-center text-sm text-gray-600 dark:text-gray-400">
 				<div className="flex flex-col gap-2">
 					<div>
-						<FormattedMessage id="layout.footerCredits" />{" "}
+						React Confetti Playground by kkoisland (Keiko) |{" "}
+						<FormattedMessage id="layout.builtWith" />{" "}
 						<a
 							href="https://github.com/alampros/react-confetti"
 							target="_blank"

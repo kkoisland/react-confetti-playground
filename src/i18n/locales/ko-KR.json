@@ -1,5 +1,5 @@
 {
-	"layout.footerCredits": "React Confetti Playground — kkoisland (Keiko) 제작 | 사용 라이브러리:",
+	"layout.builtWith": "사용 라이브러리:",
 	"layout.footerViewSource": "GitHub에서 소스 보기",
 	"common.copiedButtonShort": "복사됨!",
 	"common.copyCodeButtonShort": "복사",
