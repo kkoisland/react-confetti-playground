@@ -1,85 +1,68 @@
-# React Confetti Sample App
+# React Confetti Playground
 
-A collection of interactive examples demonstrating various use cases of the [react-confetti](https://github.com/alampros/react-confetti/) library. This project serves as a reference implementation for a Japanese React tutorial book.
+Interactive parameter playground for the [react-confetti](https://github.com/alampros/react-confetti) library. Tune animation parameters in real time, explore seasonal presets, and copy ready-to-use React code snippets.
 
-<!-- 🌐 **Live Demo:** https://kkoisland.github.io/react-confetti-app/ -->
+🌐 **Live Demo:** https://kkoisland.github.io/react-confetti-playground/
 
-## Setup
+<!-- Add screenshot or GIF here after deployment -->
 
-Clone the repository, install dependencies, and start the development server:
+## Features
+
+- Real-time parameter tuning (gravity, wind, friction, opacity, velocity, number of pieces)
+- 5 seasonal preset themes (Sakura 🌸, Snow ❄️, Koyo 🍁, Star ✨, Christmas 🎄)
+- Custom color picker (up to 5 colors)
+- Live code snippet generation with one-click copy
+- 10-language UI (EN, JA, ZH, KO, ES, FR, DE, IT, NL, SV)
+- Dark mode support
+- Responsive layout
+
+## Getting Started
 
 ```bash
-git clone https://github.com/kkoisland/react-confetti-app.git
-cd react-confetti-app
-nvm use  # Uses Node.js v22.21.1 specified in .nvmrc
+git clone https://github.com/kkoisland/react-confetti-playground.git
+cd react-confetti-playground
+nvm use  # Node.js v22.21.1 specified in .nvmrc
 pnpm install
 pnpm dev
 ```
 
 Open `http://localhost:5173` in your browser.
 
-## Features
-
-- Basic confetti toggle with button control
-- Timer-based confetti with countdown animation
-- Task completion celebration with toast notification
-- Themed confetti variations (seasonal effects)
-- Interactive playground for parameter tuning
-- Dark mode support
-- Responsive layout for mobile and desktop
-- Modern UI with glassmorphism effects
-
-## Page Structure
-
-```
-/                    → Redirect to /basic
-/basic               → Basic confetti toggle
-/countdown           → Timer-based confetti
-/toast               → Task completion with toast notification
-/seasonal            → Themed confetti variations
-/playground          → Interactive parameter tuning
-```
-
 ## Tech Stack
 
-- **Node.js**: 22.21.1
 - **React**: 19.2.0
 - **TypeScript**: 5.9.3
 - **Vite**: 7.2.2
 - **Tailwind CSS**: 4.1.17
-- **React Router**: 7.9.6
 - **react-confetti**: 6.4.0
-- **Biome**: 2.3.5 (Code linting and formatting)
+- **react-intl**: 8.1.3 (i18n, 10 languages)
+- **Biome**: 2.3.5 (linting and formatting)
 
 ## Project Structure
 
 ```
-react-confetti-app/
-├── .github/workflows/
-│   └── biome.yml
-├── .vscode/
-│   ├── settings.json
-│   └── extensions.json
-├── public/
-├── src/
-│   ├── pages/
-│   │   ├── BasicPage.tsx
-│   │   ├── CountdownPage.tsx
-│   │   ├── ToastPage.tsx
-│   │   ├── SeasonalPage.tsx
-│   │   └── PlaygroundPage.tsx
-│   ├── App.tsx
-│   ├── Layout.tsx
-│   ├── main.tsx
-│   └── index.css
-├── .gitignore
-├── .nvmrc
-├── biome.json
-├── index.html
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-└── README.md
+src/
+├── App.tsx
+├── Layout.tsx
+├── main.tsx
+├── index.css
+├── pages/
+│   └── PlaygroundPage.tsx
+├── data/
+│   └── themes.ts
+└── i18n/
+    ├── index.tsx
+    └── locales/
+        ├── en-US.json
+        ├── ja-JP.json
+        ├── zh-CN.json
+        ├── ko-KR.json
+        ├── es-ES.json
+        ├── fr-FR.json
+        ├── de-DE.json
+        ├── it-IT.json
+        ├── nl-NL.json
+        └── sv-SE.json
 ```
 
 ## Author
