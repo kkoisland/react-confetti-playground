@@ -104,6 +104,10 @@ const PlaygroundPage = () => {
 	const [copied, setCopied] = useState(false);
 	const [showConfetti, setShowConfetti] = useState(true);
 	const [showAllParameters, setShowAllParameters] = useState(false);
+	const [selectedThemeId, setSelectedThemeId] = useState<string | null>(null);
+	const [showCodePanel, setShowCodePanel] = useState(
+		() => window.innerWidth >= 768,
+	);
 
 	const confettiColors = useCustomColors
 		? customColors.filter((c) => c !== "")
@@ -194,11 +198,13 @@ const PlaygroundPage = () => {
 		setOpacity(DEFAULT_VALUES.opacity);
 		setCustomColors(DEFAULT_VALUES.customColors);
 		setUseCustomColors(DEFAULT_VALUES.useCustomColors);
+		setSelectedThemeId(null);
 		restartConfetti();
 	};
 
-	const handlePreset = (themeIndex: number) => {
-		const theme = themes[themeIndex];
+	const handlePreset = (themeId: string) => {
+		const theme = themes.find((t) => t.id === themeId);
+		if (!theme) return;
 		setNumberOfPieces(theme.numberOfPieces);
 		setGravity(theme.gravity);
 		setWind(theme.wind ?? DEFAULT_VALUES.wind);
@@ -218,11 +224,12 @@ const PlaygroundPage = () => {
 		}
 		setCustomColors(themeColors);
 		setUseCustomColors(true);
+		setSelectedThemeId(themeId);
 		restartConfetti();
 	};
 
 	return (
-		<div className="flex flex-col h-full">
+		<div className="flex flex-col min-h-full">
 			{/* Controls */}
 			<div className="p-3">
 				{/* Row 1: 3 sliders */}
@@ -395,17 +402,28 @@ const PlaygroundPage = () => {
 						<FormattedMessage id="playground.presetThemes" />
 					</div>
 					<div className="flex flex-wrap gap-1.5">
-						{themes.map((theme, index) => (
+						{themes.map((theme) => (
 							<button
 								key={theme.id}
 								type="button"
-								onClick={() => handlePreset(index)}
-								className="px-2 py-1 text-base bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+								onClick={() => handlePreset(theme.id)}
+								className={`px-2 py-1 text-base rounded border transition-colors ${
+									selectedThemeId === theme.id
+										? "bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 border-indigo-400 dark:border-indigo-500"
+										: "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700"
+								}`}
 							>
 								{theme.emoji} {theme.name}
 							</button>
 						))}
 					</div>
+					{selectedThemeId && (
+						<p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+							{intl.formatMessage({
+								id: `seasonal.theme.${selectedThemeId}.description`,
+							})}
+						</p>
+					)}
 				</div>
 
 				{/* Row 6: Control buttons */}
@@ -445,6 +463,11 @@ const PlaygroundPage = () => {
 				</div>
 			</div>
 
+			{/* Mobile: scroll space to view confetti without controls */}
+			<div className="md:hidden min-h-[60vh] flex items-end justify-center pb-4">
+				<span className="text-xs text-gray-400 dark:text-gray-600">↑ scroll up for controls</span>
+			</div>
+
 			{/* Confetti (fullscreen) */}
 			{showConfetti && (
 				<Confetti
@@ -456,50 +479,70 @@ const PlaygroundPage = () => {
 					friction={friction}
 					opacity={opacity}
 					colors={confettiColors}
+					style={{ position: "fixed" }}
 				/>
 			)}
 
-			{/* Bottom right: Code snippet */}
-			<div className="fixed bottom-4 right-4 bg-white dark:bg-gray-800 bg-opacity-90 dark:bg-opacity-90 p-4 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 w-80">
-				<div className="flex flex-col gap-3">
-					{/* Buttons row */}
-					<div className="flex items-center justify-end gap-2">
-						{showAllParameters ? (
-							<button
-								type="button"
-								onClick={() => setShowAllParameters(false)}
-								className="px-3 py-1 text-xs bg-gradient-to-r from-blue-200 to-purple-300 hover:from-blue-400 hover:to-purple-500 text-gray-800 hover:text-white font-semibold rounded transition-all whitespace-nowrap"
-							>
-								<FormattedMessage id="playground.changesOnlyButton" />
-							</button>
-						) : (
-							<button
-								type="button"
-								onClick={() => setShowAllParameters(true)}
-								className="px-3 py-1 text-xs bg-gradient-to-r from-blue-200 to-purple-300 hover:from-blue-400 hover:to-purple-500 text-gray-800 hover:text-white font-semibold rounded transition-all whitespace-nowrap"
-							>
-								<FormattedMessage id="playground.showAllButton" />
-							</button>
-						)}
-						<button
-							type="button"
-							onClick={handleCopyCode}
-							className="w-20 px-2 py-1 text-xs bg-gradient-to-r from-blue-200 to-purple-300 hover:from-blue-400 hover:to-purple-500 text-gray-800 hover:text-white font-semibold rounded transition-all whitespace-nowrap"
-						>
-							{copied ? (
-								<FormattedMessage id="common.copiedButtonShort" />
+			{/* Bottom right: Code snippet panel */}
+			{showCodePanel ? (
+				<div className="fixed bottom-4 right-4 bg-white dark:bg-gray-800 bg-opacity-90 dark:bg-opacity-90 p-4 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 w-80">
+					<div className="flex flex-col gap-3">
+						{/* Buttons row */}
+						<div className="flex items-center justify-end gap-2">
+							{showAllParameters ? (
+								<button
+									type="button"
+									onClick={() => setShowAllParameters(false)}
+									className="px-3 py-1 text-xs bg-gradient-to-r from-blue-200 to-purple-300 hover:from-blue-400 hover:to-purple-500 text-gray-800 hover:text-white font-semibold rounded transition-all whitespace-nowrap"
+								>
+									<FormattedMessage id="playground.changesOnlyButton" />
+								</button>
 							) : (
-								<FormattedMessage id="common.copyCodeButtonShort" />
+								<button
+									type="button"
+									onClick={() => setShowAllParameters(true)}
+									className="px-3 py-1 text-xs bg-gradient-to-r from-blue-200 to-purple-300 hover:from-blue-400 hover:to-purple-500 text-gray-800 hover:text-white font-semibold rounded transition-all whitespace-nowrap"
+								>
+									<FormattedMessage id="playground.showAllButton" />
+								</button>
 							)}
-						</button>
-					</div>
+							<button
+								type="button"
+								onClick={handleCopyCode}
+								className="w-20 px-2 py-1 text-xs bg-gradient-to-r from-blue-200 to-purple-300 hover:from-blue-400 hover:to-purple-500 text-gray-800 hover:text-white font-semibold rounded transition-all whitespace-nowrap"
+							>
+								{copied ? (
+									<FormattedMessage id="common.copiedButtonShort" />
+								) : (
+									<FormattedMessage id="common.copyCodeButtonShort" />
+								)}
+							</button>
+							<button
+								type="button"
+								onClick={() => setShowCodePanel(false)}
+								className="px-2 py-1 text-xs text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 rounded transition-colors"
+								aria-label="Close code panel"
+							>
+								×
+							</button>
+						</div>
 
-					{/* Code snippet - fixed height with wrapping */}
-					<pre className="text-xs text-gray-600 dark:text-gray-400 h-44 leading-4 whitespace-pre-wrap break-all">
-						<code>{generateCodeSnippet()}</code>
-					</pre>
+						{/* Code snippet - fixed height with wrapping */}
+						<pre className="text-xs text-gray-600 dark:text-gray-400 h-44 leading-4 whitespace-pre-wrap break-all">
+							<code>{generateCodeSnippet()}</code>
+						</pre>
+					</div>
 				</div>
-			</div>
+			) : (
+				<button
+					type="button"
+					onClick={() => setShowCodePanel(true)}
+					className="fixed bottom-4 right-4 px-3 py-2 bg-white dark:bg-gray-800 bg-opacity-90 dark:bg-opacity-90 text-gray-700 dark:text-gray-300 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 font-mono text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+					aria-label="Show code panel"
+				>
+					{"</>"}
+				</button>
+			)}
 		</div>
 	);
 };

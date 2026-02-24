@@ -1,6 +1,6 @@
 {
 	"layout.builtWith": "Skapad med",
-	"layout.footerViewSource": "Visa källkod på GitHub",
+	"layout.feedbackLink": "Vill du lägga till ditt språk eller förbättra en översättning? Öppna ett ärende",
 	"common.copiedButtonShort": "Kopierat!",
 	"common.copyCodeButtonShort": "Kopiera",
 	"playground.changesOnlyButton": "Endast ändringar",
@@ -14,7 +14,7 @@
 	"playground.initialVelocityY": "Initialhastighet Y",
 	"playground.numberOfPieces": "Antal konfetti",
 	"playground.opacity": "Opacitet",
-	"playground.presetThemes": "Förinställda teman:",
+	"playground.presetThemes": "Presets:",
 	"playground.resetAllButton": "Återställ allt",
 	"playground.resetColorsButton": "Återställ färger",
 	"playground.resetSlidersButton": "Återställ skjutreglage",

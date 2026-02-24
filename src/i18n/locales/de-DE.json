@@ -1,6 +1,6 @@
 {
 	"layout.builtWith": "Erstellt mit",
-	"layout.footerViewSource": "Quellcode auf GitHub ansehen",
+	"layout.feedbackLink": "Sprache hinzufügen oder Übersetzung verbessern? Issue öffnen",
 	"common.copiedButtonShort": "Kopiert!",
 	"common.copyCodeButtonShort": "Kopieren",
 	"playground.changesOnlyButton": "Nur Änderungen",
@@ -14,7 +14,7 @@
 	"playground.initialVelocityY": "Anfangsgeschwindigkeit Y",
 	"playground.numberOfPieces": "Anzahl Konfetti",
 	"playground.opacity": "Deckkraft",
-	"playground.presetThemes": "Voreinstellungen:",
+	"playground.presetThemes": "Presets:",
 	"playground.resetAllButton": "Alles zurücksetzen",
 	"playground.resetColorsButton": "Farben zurücksetzen",
 	"playground.resetSlidersButton": "Schieberegler zurücksetzen",
