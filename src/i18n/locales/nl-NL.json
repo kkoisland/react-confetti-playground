@@ -1,6 +1,6 @@
 {
 	"layout.builtWith": "Gemaakt met",
-	"layout.footerViewSource": "Broncode bekijken op GitHub",
+	"layout.feedbackLink": "Wil je jouw taal toevoegen of een vertaling verbeteren? Open een issue",
 	"common.copiedButtonShort": "Klaar!",
 	"common.copyCodeButtonShort": "Kopiëren",
 	"playground.changesOnlyButton": "Alleen wijzigingen",
@@ -14,7 +14,7 @@
 	"playground.initialVelocityY": "Beginsnelheid Y",
 	"playground.numberOfPieces": "Aantal confetti",
 	"playground.opacity": "Dekking",
-	"playground.presetThemes": "Vooraf ingestelde thema's:",
+	"playground.presetThemes": "Presets:",
 	"playground.resetAllButton": "Alles resetten",
 	"playground.resetColorsButton": "Kleuren resetten",
 	"playground.resetSlidersButton": "Schuiven resetten",

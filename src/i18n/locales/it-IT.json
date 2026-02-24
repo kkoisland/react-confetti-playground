@@ -1,6 +1,6 @@
 {
 	"layout.builtWith": "Creato con",
-	"layout.footerViewSource": "Visualizza il codice su GitHub",
+	"layout.feedbackLink": "Vuoi aggiungere la tua lingua o migliorare una traduzione? Apri una issue",
 	"common.copiedButtonShort": "Copiato!",
 	"common.copyCodeButtonShort": "Copia",
 	"playground.changesOnlyButton": "Solo modifiche",
@@ -14,7 +14,7 @@
 	"playground.initialVelocityY": "Velocità iniziale Y",
 	"playground.numberOfPieces": "Numero di coriandoli",
 	"playground.opacity": "Opacità",
-	"playground.presetThemes": "Temi predefiniti:",
+	"playground.presetThemes": "Presets:",
 	"playground.resetAllButton": "Ripristina tutto",
 	"playground.resetColorsButton": "Ripristina colori",
 	"playground.resetSlidersButton": "Ripristina cursori",

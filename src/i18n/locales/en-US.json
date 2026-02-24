@@ -1,6 +1,6 @@
 {
 	"layout.builtWith": "Built with",
-	"layout.footerViewSource": "View Source on GitHub",
+	"layout.feedbackLink": "Want to add your language or fix a translation? Open an issue",
 	"common.copiedButtonShort": "Copied!",
 	"common.copyCodeButtonShort": "Copy Code",
 	"playground.changesOnlyButton": "Changes Only",
@@ -14,7 +14,7 @@
 	"playground.initialVelocityY": "Initial Velocity Y",
 	"playground.numberOfPieces": "Number of Pieces",
 	"playground.opacity": "Opacity",
-	"playground.presetThemes": "Preset Themes:",
+	"playground.presetThemes": "Presets:",
 	"playground.resetAllButton": "Reset All",
 	"playground.resetColorsButton": "Reset Colors",
 	"playground.resetSlidersButton": "Reset Sliders",

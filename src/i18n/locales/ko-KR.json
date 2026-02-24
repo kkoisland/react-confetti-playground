@@ -1,6 +1,6 @@
 {
 	"layout.builtWith": "사용 라이브러리:",
-	"layout.footerViewSource": "GitHub에서 소스 보기",
+	"layout.feedbackLink": "언어 추가나 번역 개선을 원하신다면 Issue를 열어주세요",
 	"common.copiedButtonShort": "복사됨!",
 	"common.copyCodeButtonShort": "복사",
 	"playground.changesOnlyButton": "변경만",
@@ -14,7 +14,7 @@
 	"playground.initialVelocityY": "초기 속도 Y",
 	"playground.numberOfPieces": "색종이 수",
 	"playground.opacity": "불투명도",
-	"playground.presetThemes": "프리셋 테마:",
+	"playground.presetThemes": "프리셋:",
 	"playground.resetAllButton": "전체 초기화",
 	"playground.resetColorsButton": "색상 초기화",
 	"playground.resetSlidersButton": "슬라이더 초기화",
