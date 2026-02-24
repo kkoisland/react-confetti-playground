@@ -465,7 +465,9 @@ const PlaygroundPage = () => {
 
 			{/* Mobile: scroll space to view confetti without controls */}
 			<div className="md:hidden min-h-[60vh] flex items-end justify-center pb-4">
-				<span className="text-xs text-gray-400 dark:text-gray-600">↑ scroll up for controls</span>
+				<span className="text-xs text-gray-400 dark:text-gray-600">
+					↑ scroll up for controls
+				</span>
 			</div>
 
 			{/* Confetti (fullscreen) */}
