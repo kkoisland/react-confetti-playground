@@ -2,9 +2,9 @@
 
 Interactive parameter playground for the [react-confetti](https://github.com/alampros/react-confetti) library. Tune animation parameters in real time, explore seasonal presets, and copy ready-to-use React code snippets.
 
-🌐 **Live Demo:** https://kkoisland.github.io/react-confetti-playground/
+🌐 **Live Demo:** https://www.kkoisland.com/react-confetti-playground/
 
-<!-- Add screenshot or GIF here after deployment -->
+![React Confetti Playground](public/screenshot.png)
 
 ## Features
 
