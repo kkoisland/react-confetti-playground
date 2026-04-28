@@ -4,7 +4,7 @@ Interactive parameter playground for the [react-confetti](https://github.com/ala
 
 🌐 **Live Demo:** https://www.kkoisland.com/react-confetti-playground/
 
-![React Confetti Playground](public/screenshot.png)
+![React Confetti Playground](public/confetti-preview1.gif)
 
 ## Features
 
