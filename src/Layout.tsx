@@ -1,3 +1,4 @@
+import { Moon, Sun } from "lucide-react";
 import { type ReactNode, useEffect, useState } from "react";
 import { FormattedMessage } from "react-intl";
 import { type Locale, useLocaleContext } from "./i18n";
@@ -92,7 +93,7 @@ const Layout = ({ children }: LayoutProps) => {
 							</select>
 
 							<button type="button" onClick={toggleTheme}>
-								{isDarkMode ? "☀️" : "🌙"}
+								{isDarkMode ? <Moon /> : <Sun />}
 							</button>
 						</div>
 					</div>
